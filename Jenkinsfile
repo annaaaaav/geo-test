@@ -1,14 +1,19 @@
 pipeline{
     agent any 
     stages {
-    stage('first stage'){
+    stage('mavin clean'){
         steps{
-            sh 'echo hello'
+            sh 'mvn clean'
         }
     }
-    stage('clean artifact'){
+    stage('mavin install'){
         steps{
-            sh 'echo hi'
+            sh 'mvn install'
+        }
+    }
+     stage('mavin package'){
+        steps{
+            sh 'mvn package'
         }
     }
     }
